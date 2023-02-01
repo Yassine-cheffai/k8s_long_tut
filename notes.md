@@ -57,3 +57,16 @@ kubectl describe pod [podname]
 kubectl logs [podname]
 kubectl exec -it [podname] -- bin/bash
 ```
+```
+kubectl get deployments -o wide
+kubectl get deployment [deploymentname] -o yaml > deployment-result.yaml
+kubectl delete -f nginx-deployment.yaml
+kubectl delete -f nginx-service.yaml 
+```
+
+## yaml config files
+a config file is composed of 3 parts:
+- metadata
+- spec
+- status, contains the desired state and the actual state (auto generated, we don't need to worry about)
+kubernetes get the status informations from the etcd
