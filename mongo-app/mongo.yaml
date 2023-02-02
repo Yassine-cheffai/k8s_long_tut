@@ -29,4 +29,18 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: mongodb-secret  # the name of the secret config file
-                key: mongo-password-username  # the key of the secret in the data part of the secret config file
+                key:  mongo-root-password  # the key of the secret in the data part of the secret config file
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  selector:
+    app: mongodb  # the label of deployment and pod
+  # default type: ClusterIP -> internal port
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017

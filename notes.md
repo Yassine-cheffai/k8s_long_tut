@@ -62,6 +62,7 @@ kubectl get deployments -o wide
 kubectl get deployment [deploymentname] -o yaml > deployment-result.yaml
 kubectl delete -f nginx-deployment.yaml
 kubectl delete -f nginx-service.yaml 
+kubectl get all | grep mongo  # find all resource that have mongo in their name
 ```
 
 ## yaml config files
@@ -70,3 +71,9 @@ a config file is composed of 3 parts:
 - spec
 - status, contains the desired state and the actual state (auto generated, we don't need to worry about)
 kubernetes get the status informations from the etcd
+- order of execution matter, secrets and configmaps should be applied first
+```
+#  when creating an external service inside minikube
+# we need this command to assign an external ip to it
+minikube service [service-name]
+```
