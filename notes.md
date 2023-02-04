@@ -77,3 +77,30 @@ kubernetes get the status informations from the etcd
 # we need this command to assign an external ip to it
 minikube service [service-name]
 ```
+
+## ingress
+- if you have a 404 and not being able to load static resources use *Prefix* as pathType in ingress config
+## Namespaces
+- organize the resources: by type, by app, by team ...
+- help to avoid conflicts, example: 2 teams push the same deployment name with different configs
+- access and resource limits on namespaces
+- structure components
+- avoid conflicts between teams
+- share services between diffrent environments
+- access and resource limits on namespaces level
+- you can't access resources from other namespaces except services
+- some resources can't be isolated into a namespace, example: volumes, nodes
+
+## Helm
+- helm is like a package manager for kubernetes
+- helm charts:
+    - bundle of yaml files
+    - create your own helm charts with helm
+    - push them to helm repository
+    - download and use existing ones
+- helm as templating engine:
+    - define a common blueprint
+    - dynamic values are replaced by placeholders
+- useful for deploying the same application across diffrent environments
+
+## volumes
